@@ -1,0 +1,115 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Swagger API - Laravel",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/cliente": {
+            "get": {
+                "tags": [
+                    "cliente"
+                ],
+                "summary": "Retorna uma lista de clientes.",
+                "description": "Retorna um objeto de clientes.",
+                "operationId": "3f7df76f5273426a03833b1c0c782f0e",
+                "responses": {
+                    "200": {
+                        "description": "Uma listagem de clientes"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "cliente"
+                ],
+                "summary": "Cadastra um novo cliente.",
+                "description": "Cadastra um cliente.",
+                "operationId": "b274408a08b9fdda37204ffde8ceef72",
+                "requestBody": {
+                    "description": "Objeto Cliente a ser adicionado.",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cliente"
+                            }
+                        },
+                        "multipart/form-data": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cliente"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cadastro bem-sucedido.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Missing Data"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cliente": {
+                "required": [
+                    "nome",
+                    "email",
+                    "cpf",
+                    "data_nascimento"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "nome": {
+                        "description": "Nome do cliente",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "E-mail único do cliente",
+                        "type": "string",
+                        "format": "email",
+                        "example": "cliente@email.com"
+                    },
+                    "cpf": {
+                        "description": "CPF do cliente",
+                        "type": "string",
+                        "format": "###.###.###-##",
+                        "example": "123.123.123-45"
+                    },
+                    "data_nascimento": {
+                        "description": "Data de nascimento do cliente",
+                        "type": "string",
+                        "format": "date: Y-m-d",
+                        "example": "2000-12-25"
+                    },
+                    "status": {
+                        "description": "Define a disponibilidade/visibilidade do registro.",
+                        "type": "boolean"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Cliente"
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
