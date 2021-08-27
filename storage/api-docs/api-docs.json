@@ -88,7 +88,7 @@
                     "cpf": {
                         "description": "CPF do cliente",
                         "type": "string",
-                        "format": "###.###.###-##",
+                        "format": "999.999.999-99",
                         "example": "123.123.123-45"
                     },
                     "data_nascimento": {
