@@ -2,7 +2,7 @@
 
 
 
-### 1. Copiar .env da www/ 
+### 1. Copiar .env da raiz 
 
 ```
 $ cp .env.example .env
